@@ -1,22 +1,22 @@
-import { auth, signIn, signOut } from "@/auth"
-import Image from "next/image"
-import Link from "next/link"
+import { auth, signIn, signOut } from "@/auth";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = async () => {
-  const session = await auth()
+  const session = await auth();
 
   const handleSignIn = async () => {
-    "use server"
-    await signIn("github")
-  }
+    "use server";
+    await signIn("github");
+  };
   const handleSignOut = async () => {
-    "use server"
-    await signOut({ redirectTo: "/" })
-  }
+    "use server";
+    await signOut({ redirectTo: "/" });
+  };
 
   return (
-    <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
-      <nav className="flex justify-between items-center">
+    <header className="font-work-sans bg-white px-5 py-3 shadow-sm">
+      <nav className="flex items-center justify-between">
         <Link href="/">
           <Image src="/images/logo.png" alt="logo" width={144} height={30} />
         </Link>
@@ -55,7 +55,7 @@ const Navbar = async () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
